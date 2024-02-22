@@ -68,7 +68,7 @@ public class PatientController {
     @PostMapping("/updatePatientDetails")
     public ResponseEntity<Patient> updatePatientDetails(@RequestBody Patient patientRequest){
         Patient patient = patientService.updatePatientDetails(patientRequest);
-        if (patient!=null){
+        if (patient==null){
             return new ResponseEntity<>(new Patient(),HttpStatus.BAD_REQUEST);
         }
         return new ResponseEntity<>(patient,HttpStatus.CREATED);
